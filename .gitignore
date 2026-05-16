@@ -1,0 +1,20 @@
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+node_modules/
+
+# Secrets — never commit
+.env
+.env.*
+*.key
+*.pem
+credentials.*
+secrets/
+*.local
+*.tfvars
+
+# AI tool local settings (may contain machine-specific paths or tokens)
+.claude/settings.local.json

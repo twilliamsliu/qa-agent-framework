@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you reference this framework, please cite it as below."
+title: "QA Agent Operating Framework"
+type: software
+authors:
+  - family-names: Liu
+    given-names: Williams
+    email: twilliamsliu@gmail.com
+    website: "https://me.twilliamstech.com"
+repository-code: "https://github.com/twilliamsliu/qa-agent-framework"
+url: "https://me.twilliamstech.com/blog/qa-agent-framework/"
+license: CC-BY-4.0
+date-released: "2026-05-15"
+keywords:
+  - qa
+  - qa-automation
+  - ai-agents
+  - llm
+  - mcp
+  - testing-framework
+  - agent-orchestration
+  - playbook
