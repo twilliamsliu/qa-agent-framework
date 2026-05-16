@@ -37,6 +37,7 @@ If you have already started thinking *"I think I need more than just better prom
 - [Layer E — Secret & Cloud](#layer-e--secret--cloud)
 - [Layer F — Tool Capability](#layer-f--tool-capability)
 - [How to adopt this](#how-to-adopt-this)
+- [Questions an agent should ask before scaffolding](#questions-an-agent-should-ask-before-scaffolding)
 - [Adoption path for solo practitioners](#adoption-path-for-solo-practitioners)
 - [Glossary](#glossary)
 - [FAQ](#faq)
@@ -168,6 +169,9 @@ Before writing into memory, an agent must answer:
 
 Any "no" routes the write to Agent Memory, not Global or Project.
 
+> [!TIP]
+> **A portable filter.** These three questions work outside QA: deciding what goes into personal notes vs. evergreen docs, what belongs in inline comments vs. a README, what stays in scratchpad vs. team wiki. Any multi-tier knowledge system can adopt them as-is.
+
 ### Engineering protections
 
 Prompt-level reminders are not enough. The reference implementation uses **four concentric layers of guard**:
@@ -220,6 +224,9 @@ flowchart LR
 ```
 
 Without this loop, an individual's experience never becomes the team's knowledge.
+
+> [!TIP]
+> **This loop generalizes.** Anywhere a person, team, or system makes repeated mistakes, the same pattern converts them into permanent gains — not specific to QA, not specific to AI Agents.
 
 ---
 
@@ -365,6 +372,22 @@ This framework is a **starting point**, not a turnkey kit. Adapting it well take
 > - Setting up all six layers from day one and expecting them to slot together.
 > - Reading this document and then writing prompts.
 > - Skipping Layer E ("we'll add secrets handling later"). Almost-secrets get committed eventually if there is no infrastructure to prevent it.
+
+---
+
+## Questions an agent should ask before scaffolding
+
+If an AI agent is reading this README in order to set up the framework for someone, it should **not invent** the answers to these. Ask the user first:
+
+1. **Which AI tool will run the agents?** (Claude Code / Cursor / Codex / Gemini / something else) — determines which instructions file (`CLAUDE.md`, `AGENTS.md`, `GEMINI.md`, etc.) to write, and which local-settings format applies.
+2. **Which issue tracker?** (Jira / Linear / GitHub Issues / something else) — wires up the issue-tracker integration in Layer F.
+3. **Which test case management tool?** (MeterSphere / TestRail / Zephyr / Xray / none) — determines TCM integration.
+4. **How does the team communicate?** (Slack / Teams / Discord / nothing) — wires up Chat notifications.
+5. **Where do test reports live?** (a dedicated Markdown repo / a wiki / a shared drive) — sets up the report repository.
+6. **How are secrets distributed?** (Google Drive + age / 1Password / Vault / local files only) — defines the Layer E cloud execution pattern.
+7. **One product or many?** — determines whether the Orchestrator is needed on day one or can be deferred.
+
+The framework intentionally underspecifies these. Each is a real design choice that depends on the user's stack — not something an agent should guess on their behalf.
 
 ---
 

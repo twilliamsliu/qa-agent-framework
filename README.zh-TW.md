@@ -37,6 +37,7 @@
 - [Layer E — 機敏與雲端](#layer-e--機敏與雲端)
 - [Layer F — 工具能力](#layer-f--工具能力)
 - [怎麼導入](#怎麼導入)
+- [Agent 開始 scaffold 之前該問的問題](#agent-開始-scaffold-之前該問的問題)
 - [個人實作者的導入路徑](#個人實作者的導入路徑)
 - [術語表](#術語表)
 - [FAQ](#faq)
@@ -168,6 +169,9 @@ Hub-and-Spoke 之所以勝出：跨產品變更有單一進入點、責任清楚
 
 任一答否，就寫進 Agent Memory，不是 Global / Project。
 
+> [!TIP]
+> **這是一個可移植的過濾器**。三個問題在 QA 以外也成立 — 決定東西該進 daily note 還是 evergreen doc、該寫成 inline comment 還是進 README、該留 scratchpad 還是搬上團隊 wiki，都用得上。
+
 ### 工程化保護
 
 光靠 prompt 提醒不夠 — agent 跟人一樣，半年後就會出包。參考實作用**四層同心防護**：
@@ -216,6 +220,9 @@ flowchart LR
 ```
 
 沒有這條閉環，個人經驗永遠是個人的，新 agent 接手得從頭踩。
+
+> [!TIP]
+> **這個閉環是通用的**。任何會重複犯錯的個人、團隊、系統都適用 — 不限 QA、不限 AI Agent。
 
 ---
 
@@ -363,6 +370,22 @@ Service Account → Google Drive (或同類) → age 加密
 > - Day 1 就把 6 層一次設好，期待它們自動接得起來
 > - 讀完這份文件就開始寫 prompt
 > - 略過 Layer E（「機敏管理之後再加」）。沒有機制擋的話，幾乎機敏的東西早晚會被 commit 出去
+
+---
+
+## Agent 開始 scaffold 之前該問的問題
+
+如果一個 AI agent 在讀這份 README 是為了幫某人把框架建起來，**不要自己編答案**。先問使用者：
+
+1. **要用哪個 AI 工具跑 agent？**（Claude Code / Cursor / Codex / Gemini / 其他）— 決定 instruction 檔（`CLAUDE.md`、`AGENTS.md`、`GEMINI.md` 等）寫哪份、以及本機設定的格式
+2. **用哪個 Issue Tracker？**（Jira / Linear / GitHub Issues / 其他）— Layer F 的 issue tracker 整合
+3. **用哪個 Test Case Management？**（MeterSphere / TestRail / Zephyr / Xray / 不用）— TCM 整合
+4. **團隊怎麼溝通？**（Slack / Teams / Discord / 都沒在用）— Chat 通知整合
+5. **測試報告放哪？**（專屬 Markdown repo / wiki / 共享雲端）— 報告倉庫
+6. **機敏怎麼分發？**（Google Drive + age / 1Password / Vault / 純本機）— Layer E 雲端執行模式
+7. **單一產品還是多產品？**— 決定 Orchestrator 是 day 1 就要、還是可以晚點再上
+
+框架刻意不指定這些。每一題都是真實的設計選擇，取決於使用者的技術棧 — 不該由 agent 替使用者腦補。
 
 ---
 
