@@ -302,7 +302,7 @@ Service Account → Google Drive (或同類) → age 加密
    Server cron 拉機敏到本機 cache（有 TTL）
          │
          ▼
-   執行測試（GitLab CI / Playwright 等）
+   執行測試（CI / Playwright 等）
          │
          ▼
    結果三軌回報：TCM / Markdown 倉庫 / Chat

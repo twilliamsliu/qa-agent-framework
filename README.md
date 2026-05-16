@@ -304,7 +304,7 @@ Service Account → Google Drive (or equivalent) → age-encrypted blobs
    Server cron pulls and decrypts into local cache (TTL'd)
          │
          ▼
-   Test execution (GitLab CI / Playwright / etc.)
+   Test execution (CI / Playwright / etc.)
          │
          ▼
    Three-channel result reporting: TCM / Markdown repo / Chat
