@@ -389,6 +389,8 @@ If an AI agent is reading this README in order to set up the framework for someo
 
 The framework intentionally underspecifies these. Each is a real design choice that depends on the user's stack — not something an agent should guess on their behalf.
 
+These questions are operationalized in [`templates/orchestrator-bootstrap.md`](./templates/orchestrator-bootstrap.md) (also available in [zh-TW](./templates/orchestrator-bootstrap.zh-TW.md)). Drop it into an empty workspace directory and ask your AI tool to "follow orchestrator-bootstrap.md" — it will run this interview, scaffold L1 / L2, write the first Iron Law, and stop. It does **not** create Project Agents or install Layer F tools; those are Week 2 and Week 4+ of the adoption path below, by hand.
+
 ---
 
 ## Adoption path for solo practitioners

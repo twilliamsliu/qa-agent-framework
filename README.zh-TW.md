@@ -387,6 +387,8 @@ Service Account → Google Drive (或同類) → age 加密
 
 框架刻意不指定這些。每一題都是真實的設計選擇，取決於使用者的技術棧 — 不該由 agent 替使用者腦補。
 
+這些問題的可執行版本在 [`templates/orchestrator-bootstrap.zh-TW.md`](./templates/orchestrator-bootstrap.zh-TW.md)（英文版見 [`templates/orchestrator-bootstrap.md`](./templates/orchestrator-bootstrap.md)）。把它丟進一個空的工作目錄，請 AI 工具「依照 orchestrator-bootstrap.zh-TW.md 進行」 — 它會跑完訪談、搭出 L1 / L2、寫入第一條 Iron Law 之後停手。它**不會**幫你建 Project Agent 或裝 Layer F 工具；那分別是下面採用路徑的 Week 2 與 Week 4+，要自己手動接。
+
 ---
 
 ## 個人實作者的導入路徑
