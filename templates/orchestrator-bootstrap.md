@@ -45,13 +45,20 @@ a git repo (do not run this bootstrap inside a `git init`'d folder —
 avoid nested git). If it is, ask the user to switch to a clean
 empty directory and restart.
 
-Based on the answers, create this layout as **sibling directories**
-of the current workspace:
+Based on the answers, create the following two sibling repos
+**inside the current working directory** (siblings of each other,
+both children of cwd):
 
-    your-workspace/
+    your-workspace/              ← = your current working directory (cwd)
     ├── qa-agent-framework/   ← L1 · clone of the public framework
     └── qa-agent-config/      ← L2 · empty org-private repo
     (project repos come later, one per product line — not now)
+
+**Do not** assume the user is "just testing" and redirect them
+elsewhere (e.g. `~/Documents/work/`) just because the directory
+name looks like `test_*` / `sandbox*` / `tmp*`. The user dropped
+this bootstrap here, so **here is the workspace**. Build in place
+inside cwd — do not jump out.
 
 For each:
 

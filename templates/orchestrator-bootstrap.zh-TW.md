@@ -41,12 +41,18 @@ https://github.com/twilliamsliu/qa-agent-framework 的
 （不要在 `git init` 過的資料夾跑這份 bootstrap，避免巢狀 git）。
 若是，請使用者換到一個乾淨的空目錄重來。
 
-依訪談答案，在目前工作目錄的**同層**建立以下結構：
+依訪談答案，在目前工作目錄**裡面**建立以下兩個 sibling repos
+（兩者彼此為 siblings，且都是 cwd 的子目錄）：
 
-    your-workspace/
+    your-workspace/              ← = 你目前的工作目錄（cwd）
     ├── qa-agent-framework/   ← L1 · 公開 framework 的 clone
     └── qa-agent-config/      ← L2 · 空的組織私有 repo
     (project repos 之後一個產品線一個，目前先不建)
+
+**不要**因為目錄名字像 `test_*` / `sandbox*` / `tmp*` 就反推使用者
+是在試水溫、然後建議他改去別處（例如 `~/Documents/work/`）安裝。
+使用者把這份 bootstrap 放在這裡，**這裡就是 workspace**；
+在 cwd 內就地建構，不要往外跳。
 
 逐項處理：
 
