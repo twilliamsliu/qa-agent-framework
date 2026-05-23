@@ -15,6 +15,11 @@
 > [!NOTE]
 > 這份文件描述的是操作 AI Agent 進行 QA 工作的通用架構模式。不衍生自、也不代表任何特定組織的內部系統或商業機密。所有範例僅為示意。
 
+> [!IMPORTANT]
+> **狀態 · 初期。** 目前 scaffold 跑通的組合是 N=1：Claude Code + Jira + Google Sheets + Slack + 純本機 L3，沿著 `templates/orchestrator-bootstrap.zh-TW.md` Phase 1–4 走完。其他 AI 工具（Cursor / Codex / Gemini）、issue tracker（Linear / GitHub Issues）、TCM（TestRail / Zephyr / Xray / MeterSphere）、聊天平台（Teams / Discord）刻意設計成可支援，**但都還沒在真實環境驗證過**。
+>
+> 如果你用了這套、stack 跟我不同，請開 issue 告訴我哪裡跑得通、哪裡卡住 — 這正是此階段最需要的回饋。回報格式見 [`.github/ISSUE_TEMPLATE/bootstrap-feedback.md`](./.github/ISSUE_TEMPLATE/bootstrap-feedback.md)。
+
 一套**平台層**的工作流規範，用來在 AI Agent 協作環境下做 QA — 寫給任何想把 AI 驅動 QA 從 PoC 階段往上推的人，不論你是個人、小團隊、還是在較大組織裡。
 
 它不是工具、不是 MCP，是一組**慣例、結構、護欄**，落在你選用的 LLM / IDE / framework 之上 — 讓你的 QA Agent 在多 session / 多產品線環境下協作時，不會踩到那些可預期的雷（健忘、改到同一份共用程式碼、機敏外洩、被綁在單一廠商）。

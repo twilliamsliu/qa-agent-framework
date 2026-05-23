@@ -15,6 +15,11 @@
 > [!NOTE]
 > This framework documents general architectural patterns for operating AI Agents in QA workflows. It is not derived from, nor does it represent, any specific organization's proprietary systems or trade secrets. All examples are illustrative.
 
+> [!IMPORTANT]
+> **Status · Early.** This scaffold has been tested end-to-end as N=1: Claude Code + Jira + Google Sheets + Slack + local L3, through `templates/orchestrator-bootstrap.md` Phase 1–4. Other AI tools (Cursor, Codex, Gemini), issue trackers (Linear, GitHub Issues), TCMs (TestRail, Zephyr, Xray, MeterSphere), and chat platforms (Teams, Discord) are intentionally supported by design but **not yet verified in the wild**.
+>
+> If you adopt this and your stack differs, please open an issue with what worked and what broke — that is exactly the feedback this stage of the project needs. See [`.github/ISSUE_TEMPLATE/bootstrap-feedback.md`](./.github/ISSUE_TEMPLATE/bootstrap-feedback.md).
+
 A platform-layer playbook for running QA work with multiple AI Agents — for anyone scaling AI-assisted QA past the first proof-of-concept, whether solo, in a small team, or inside a larger org.
 
 It is not a tool. It is not an MCP. It is a **set of conventions, structures, and guardrails** that sit *above* whichever LLM / IDE / framework you happen to use, so that your QA Agents can collaborate without the usual failure modes (forgetting, conflicting writes, leaked secrets, vendor lock-in).
