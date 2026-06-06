@@ -18,18 +18,41 @@ Do not skip phases. Do not invent answers — ask the user.
 
 ## Phase 1 — Interview (mandatory)
 
+**Preflight (before anything else)**: the current working
+directory must **not** itself be a git repo (do not run this
+bootstrap inside a `git init`'d folder — avoid nested git). If it
+is, ask the user to move this file to a clean empty directory and
+restart there, *before* spending any time on the interview.
+
 **Opening line**: ask the user to first go read the
 *Architecture overview* and Layer A / B / C sections at
 https://github.com/twilliamsliu/qa-agent-framework before
 continuing. If they confirm they've read it, proceed. If not,
 have them read it first — do not force on through.
 
-Then ask the user the 7 questions from the README's *Questions
-an agent should ask before scaffolding* section. Ask them **one
-at a time**, not as a wall of text. Record the answers in a single
-block at the top of `setup-answers.md` **in the current workspace
-root** (this file is temporary — Phase 2 moves it into L2). Do not
-enter Phase 2 until this file is complete.
+Then ask the user the 7 questions below. They mirror the README's
+*Questions an agent should ask before scaffolding* section — ask
+them **as written here**; do not re-derive them from memory or
+fetch them remotely. Ask **one at a time**, not as a wall of text.
+
+1. **Which AI tool will run the agents?** (Claude Code / Cursor /
+   Codex / Gemini / something else)
+2. **Which issue tracker?** (Jira / Linear / GitHub Issues /
+   something else)
+3. **Which test case management tool?** (MeterSphere / TestRail /
+   Zephyr / Xray / none)
+4. **How does the team communicate?** (Slack / Teams / Discord /
+   nothing)
+5. **Where do test reports live?** (a dedicated Markdown repo / a
+   wiki / a shared drive)
+6. **How are secrets distributed?** (Google Drive + age /
+   1Password / Vault / local files only)
+7. **One product or many?**
+
+Record the answers in a single block at the top of
+`setup-answers.md` **in the current workspace root** (this file is
+temporary — Phase 2 moves it into L2). Do not enter Phase 2 until
+this file is complete.
 
 **Hard rule**: if the user says "you decide" or "default is fine"
 for any of these, push back once. These are real design choices,
@@ -40,10 +63,11 @@ not preferences. Only accept a default if the user explicitly says
 
 ## Phase 2 — Generate skeleton
 
-First check: the current working directory must **not** itself be
-a git repo (do not run this bootstrap inside a `git init`'d folder —
-avoid nested git). If it is, ask the user to switch to a clean
-empty directory and restart.
+First check: confirm the Phase 1 preflight still holds — the cwd
+is not itself a git repo. If this somehow surfaces only now, have
+the user switch to a clean empty directory, **carry
+`setup-answers.md` over**, and resume from here — do not redo the
+interview.
 
 Based on the answers, create the following two sibling repos
 **inside the current working directory** (siblings of each other,
@@ -68,8 +92,8 @@ For each:
 - **L2**: `git init qa-agent-config && cd qa-agent-config`
   - Create `org-config.yml` with keys derived from the answers
     (issue tracker base URL, TCM tool, chat webhook placeholder,
-    secret distribution mechanism). Leave values blank — the user
-    fills them.
+    test report location, secret distribution mechanism). Leave
+    values blank — the user fills them.
   - Create `memory/global.md` with the heading "Iron Laws" and
     nothing else. Phase 3 fills the first one.
   - Create `memory/project-memos/` (empty).
@@ -81,14 +105,18 @@ For each:
   in any of the above repos. We will not generate this layer for you."
 
 After creating, run `git status` in each repo and show the user.
+Do **not** commit or push anything — filling in the blank values
+and making the first commit is the user's job (Week 1).
 
 ---
 
 ## Phase 3 — First Iron Law
 
 Write exactly one Iron Law into `qa-agent-config/memory/global.md`:
-the **push confirmation contract** from the README's Layer D.
-Verbatim is fine. This is the only law you author unprompted.
+the **push confirmation contract** from the README's Layer D. Read
+it from the local clone — `qa-agent-framework/README.md`, *Push
+confirmation contract (Iron Law 1)* — and copy it verbatim; do not
+rewrite it from memory. This is the only law you author unprompted.
 
 Then ask the user: "What is the most expensive mistake you fear
 your QA agent could make in your context?"
@@ -143,7 +171,7 @@ This bootstrap only covers "Day 0 skeleton". From here, advance
 through the stages below in order; do not skip:
 
 1. **End of Week 1 · finish L2 config** — fill in the blank values
-   of `org-config.yml`.
+   of `org-config.yml` and make L2's first commit.
 2. **Week 2 · first Project Agent + first round of memory accrual**
    — per README *Week 2*, wire one product line through a real
    workflow. Every mistake the agent makes gets written into the

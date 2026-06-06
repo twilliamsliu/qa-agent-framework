@@ -9,6 +9,7 @@ labels: ["bootstrap-feedback", "needs-triage"]
 
 ## Your stack
 
+- **Bootstrap file**: <!-- orchestrator-bootstrap.md (en) / orchestrator-bootstrap.zh-TW.md -->
 - **AI tool**: <!-- Claude Code / Cursor / Codex / Gemini / other -->
 - **AI model**: <!-- Sonnet 4.6 / Opus 4.7 / GPT-5 / Gemini 2.5 / etc -->
 - **Issue tracker**: <!-- Jira / Linear / GitHub Issues / other / none -->

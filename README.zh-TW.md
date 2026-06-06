@@ -353,9 +353,9 @@ Service Account → Google Drive (或同類) → age 加密
 
 ### 第 1 週 — 骨架
 
-1. 建三個 Git Repo，照 L1 / L2 / L3 配置（L1 可以 fork 這份，L2 開新空 repo，L3 放本機 home 目錄）
+1. 建兩個 Git Repo，照 L1 / L2 配置（L1 可以 fork 這份，L2 開新空 repo）。L3 **不是** repo — secrets 留在 home 目錄或密碼管理器
 2. 挑**一個** Project Agent 開始。不要先設 Orchestrator — 先讓一條產品線端到端跑通，再去談跨產品
-3. 在 Global Memory 寫**前 3 條鐵律**。「推版確認制」幾乎一定是其中之一
+3. 在 Global Memory 寫**第一條鐵律** — 起手式幾乎一定是「推版確認制」。其餘候選先放 `iron-law-candidates.md`，親身踩過那個痛再逐條 promote
 
 ### 第 2 週 — 跑迴圈
 

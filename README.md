@@ -355,9 +355,9 @@ This framework is a **starting point**, not a turnkey kit. Adapting it well take
 
 ### Week 1 — Skeleton
 
-1. Create three Git repos following the L1 / L2 / L3 layout (L1 can be a fork of this one, L2 starts empty, L3 lives in your home directory).
+1. Create two Git repos following the L1 / L2 layout (L1 can be a fork of this one, L2 starts empty). L3 is **not** a repo — secrets stay in your home directory or password manager.
 2. Pick one Project Agent. Do not try to set up the Orchestrator first — get one project working end-to-end before generalizing.
-3. Define your **first three iron laws** in Global Memory. Push confirmation is almost always one of them.
+3. Define your **first iron law** in Global Memory — push confirmation is almost always the one to start with. Park further candidates in `iron-law-candidates.md` and promote each only after you have felt the pain it prevents.
 
 ### Week 2 — Loop
 

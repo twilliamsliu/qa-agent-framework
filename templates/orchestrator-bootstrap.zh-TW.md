@@ -17,14 +17,34 @@ QA Agent Operating Framework 的使用者搭建初始結構
 
 ## Phase 1 — 訪談（必要）
 
+**前置檢查（最先做）**：目前工作目錄本身**不應該**是一個
+git repo（不要在 `git init` 過的資料夾跑這份 bootstrap，
+避免巢狀 git）。若是，請使用者把這份檔案移去一個乾淨的
+空目錄重來 — 在浪費任何訪談時間*之前*就要擋下。
+
 **開場第一句**：請使用者先回頭讀完
 https://github.com/twilliamsliu/qa-agent-framework 的
 *Architecture overview* 與 Layer A / B / C 三節再回來。
 若使用者表示已讀過，再進入訪談；若沒讀，請他先讀完，
 不要強行往下。讀完之後再進入 7 題訪談。
 
-依照 README 的 *Questions an agent should ask before scaffolding*
-段落，**一次一題**地問使用者那 7 個問題（不要一次丟一面牆）。
+接著問使用者下面 7 個問題。內容鏡像自 README 的
+*Questions an agent should ask before scaffolding* 段落 —
+**照這裡寫的問**，不要憑記憶重新推導、也不要連網去抓。
+**一次一題**，不要一次丟一面牆。
+
+1. **跑 agents 的 AI 工具是哪個？**（Claude Code / Cursor /
+   Codex / Gemini / 其他）
+2. **Issue tracker 用哪個？**（Jira / Linear / GitHub Issues /
+   其他）
+3. **測試案例管理工具用哪個？**（MeterSphere / TestRail /
+   Zephyr / Xray / 沒有）
+4. **團隊怎麼溝通？**（Slack / Teams / Discord / 沒有）
+5. **測試報告放哪裡？**（專用 Markdown repo / wiki / 共用雲端）
+6. **Secrets 怎麼分發？**（Google Drive + age / 1Password /
+   Vault / 純本機檔案）
+7. **一個產品還是多個？**
+
 所有回答彙整成一個區塊，先寫入**目前工作目錄根**的
 `setup-answers.md`（這個檔暫存於此，Phase 2 會搬進 L2）。
 完成這份檔案前不要進 Phase 2。
@@ -37,9 +57,10 @@ https://github.com/twilliamsliu/qa-agent-framework 的
 
 ## Phase 2 — 生成骨架
 
-先檢查：目前工作目錄本身**不應該**是一個 git repo
-（不要在 `git init` 過的資料夾跑這份 bootstrap，避免巢狀 git）。
-若是，請使用者換到一個乾淨的空目錄重來。
+先檢查：確認 Phase 1 的前置檢查仍然成立 — cwd 本身不是
+git repo。若直到現在才發現，請使用者換到乾淨的空目錄、
+**把 `setup-answers.md` 一起帶過去**，從這裡接續即可 —
+不用重做訪談。
 
 依訪談答案，在目前工作目錄**裡面**建立以下兩個 sibling repos
 （兩者彼此為 siblings，且都是 cwd 的子目錄）：
@@ -62,7 +83,8 @@ https://github.com/twilliamsliu/qa-agent-framework 的
 - **L2**：`git init qa-agent-config && cd qa-agent-config`
   - 建立 `org-config.yml`，欄位由訪談答案推出
     （issue tracker base URL、TCM tool、chat webhook 佔位、
-    secret distribution 方式）。值留白，由使用者自己填。
+    測試報告位置、secret distribution 方式）。值留白，
+    由使用者自己填。
   - 建立 `memory/global.md`，內容只有一行標題「Iron Laws」。
     Phase 3 會寫入第一條。
   - 建立 `memory/project-memos/`（空）。
@@ -74,13 +96,17 @@ https://github.com/twilliamsliu/qa-agent-framework 的
   絕對不放進上面任一個 repo。這層我們不替你生。」
 
 建好之後在每個 repo 跑一次 `git status` 給使用者看。
+**不要** commit 也不要 push — 填完空欄、做出第一個 commit
+是使用者自己的事（Week 1）。
 
 ---
 
 ## Phase 3 — 第一條 Iron Law
 
 在 `qa-agent-config/memory/global.md` 寫入**且只寫入**一條 Iron Law：
-README Layer D 的**推版確認制**。原文照抄即可。
+README Layer D 的**推版確認制**。從本地 clone 讀 —
+`qa-agent-framework/README.zh-TW.md` 的「推版確認制（鐵律 1）」
+一節 — 原文照抄，不要憑記憶重寫。
 這是你唯一可以未經詢問就寫入的法則。
 
 接著問使用者：「在你的工作脈絡裡，你最害怕 QA agent 犯下、
@@ -128,7 +154,8 @@ README Layer D 的**推版確認制**。原文照抄即可。
 bootstrap 只負責「Day 0 骨架」。接下來照下列順序推進，
 每完成一階再進下一階，不要跳：
 
-1. **Week 1 末 · 補齊 L2 設定** — 把 `org-config.yml` 的空欄填完。
+1. **Week 1 末 · 補齊 L2 設定** — 把 `org-config.yml` 的空欄填完，
+   並做出 L2 的第一個 commit。
 2. **Week 2 · 第一個 Project Agent + 第一輪記憶累積** —
    依 README *Week 2* 接一個產品線、跑一輪真實工作流，
    過程中的每個錯誤都寫進 Global Memory 的 error-correction log
