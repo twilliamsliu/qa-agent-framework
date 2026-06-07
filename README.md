@@ -233,6 +233,14 @@ Without this loop, an individual's experience never becomes the team's knowledge
 > [!TIP]
 > **This loop generalizes.** Anywhere a person, team, or system makes repeated mistakes, the same pattern converts them into permanent gains — not specific to QA, not specific to AI Agents.
 
+### A pre-seeded rule: task boundaries
+
+Most self-learning rules have to be earned through your own mistakes. This one is near-universal in long-lived agent sessions, so it ships pre-seeded:
+
+> **Session lifetime ≠ task lifetime.** A session opened for task A often outlives it — left idle, then reused for task B. The result: task B lands on task A's branch, or two unrelated tasks merge into one commit. Before starting any new task, verify that (1) the working tree is clean and (2) the current branch matches the task. One task = one branch / one commit scope. Leftover uncommitted work gets dispositioned first.
+
+**Enforcement note.** This failure fires late in a long session — exactly when rules loaded at startup have been diluted by context, so a prompt-level reminder alone will not hold (the same lesson as Layer B's engineering protections). Use your AI tool's per-interaction hook instead: on each user prompt, inject the repo state (uncommitted files, branch, time since last commit) plus a judging instruction. The agent compares the leftover changes against the incoming request — same task, continue silently; different task, stop and ask the user whether to commit or stash the old work first. The disposition decision stays with the user; the hook never commits on its own.
+
 ---
 
 ## Layer D — Sync & GitOps
