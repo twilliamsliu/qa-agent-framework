@@ -118,6 +118,16 @@ it from the local clone — `qa-agent-framework/README.md`, *Push
 confirmation contract (Iron Law 1)* — and copy it verbatim; do not
 rewrite it from memory. This is the only law you author unprompted.
 
+Then append a second section to `global.md`: the heading
+"Self-Learning Rules" containing the **task-boundary rule** from
+the README's Layer C — read it from the local clone
+(`qa-agent-framework/README.md`, *A pre-seeded rule: task
+boundaries*) and copy the quoted rule verbatim. This is the one
+self-learning rule the framework pre-seeds; all others must be
+earned in Week 2+. Do **not** set up the enforcement hook described
+in that section — that is implementation work for when a real
+workflow exists (Week 2+).
+
 Then ask the user: "What is the most expensive mistake you fear
 your QA agent could make in your context?"
 
@@ -152,7 +162,8 @@ Print this checklist to the user and stop:
       (secrets live in your home directory or password manager).
 - [ ] `qa-agent-config/org-config.yml` exists with blank values
       for you to fill in.
-- [ ] `qa-agent-config/memory/global.md` contains one Iron Law.
+- [ ] `qa-agent-config/memory/global.md` contains one Iron Law and
+      one pre-seeded self-learning rule (task boundaries).
 - [ ] `qa-agent-config/memory/iron-law-candidates.md` contains a
       candidate law (promote into `global.md` after you've felt
       the pain).

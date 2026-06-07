@@ -22,7 +22,7 @@ labels: ["bootstrap-feedback", "needs-triage"]
 
 - [ ] Phase 1 — Interview (the 7 questions)
 - [ ] Phase 2 — Skeleton (L1 clone + L2 init)
-- [ ] Phase 3 — First Iron Law + candidate
+- [ ] Phase 3 — First Iron Law + pre-seeded rule + candidate
 - [ ] Phase 4 — Handoff checklist
 - [ ] Week 1 — filled `org-config.yml`
 - [ ] Week 2 — first Project Agent wired up

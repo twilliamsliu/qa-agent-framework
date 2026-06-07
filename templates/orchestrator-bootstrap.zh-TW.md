@@ -109,6 +109,14 @@ README Layer D 的**推版確認制**。從本地 clone 讀 —
 一節 — 原文照抄，不要憑記憶重寫。
 這是你唯一可以未經詢問就寫入的法則。
 
+接著在 `global.md` 追加第二個 section：標題「Self-Learning Rules」，
+內容是 README Layer C 的**任務邊界規則** — 從本地 clone 讀
+（`qa-agent-framework/README.zh-TW.md` 的
+「一條預埋的自學規則：任務邊界」一節），把引文中的規則原文照抄。
+這是框架唯一預埋的自學規則，其餘都要等 Week 2+ 自己踩出來。
+那一節描述的 enforcement hook **不要**在此時架設 —
+那是有真實工作流之後（Week 2+）的實作工作。
+
 接著問使用者：「在你的工作脈絡裡，你最害怕 QA agent 犯下、
 代價最高的錯誤是什麼？」
 
@@ -137,7 +145,8 @@ README Layer D 的**推版確認制**。從本地 clone 讀 —
 - [ ] 你有 `qa-agent-framework/` 與 `qa-agent-config/` 兩個 sibling repos，
       且你理解 L3 不在這層管理（secrets 在家目錄或密碼管理器）。
 - [ ] `qa-agent-config/org-config.yml` 存在，欄位待你自己填。
-- [ ] `qa-agent-config/memory/global.md` 有一條 Iron Law。
+- [ ] `qa-agent-config/memory/global.md` 有一條 Iron Law，
+      以及一條預埋的自學規則（任務邊界）。
 - [ ] `qa-agent-config/memory/iron-law-candidates.md` 有一條候選法則
       （等你親身感受過再 promote 進 global.md）。
 - [ ] 你理解此刻**還沒有任何 Project Agent**。

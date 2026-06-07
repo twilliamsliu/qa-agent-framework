@@ -17,9 +17,12 @@ Sync surfaces:
    ask before scaffolding* ↔ bootstrap Phase 1 (inlined by design so
    the bootstrap works offline). Four copies total across both
    languages.
-3. **Push confirmation contract** — README Layer D section. Bootstrap
-   Phase 3 points to it **by section title**; renaming the section
-   breaks the pointer.
+3. **Section-title pointers from bootstrap Phase 3** — bootstrap
+   points to two README sections **by section title**: *Push
+   confirmation contract (Iron Law 1)* (Layer D) and *A pre-seeded
+   rule: task boundaries* (Layer C; zh-TW:
+   「一條預埋的自學規則：任務邊界」). Renaming either section breaks
+   the pointer.
 4. **Adoption path (Week 1–4+)** — README *How to adopt this* ↔
    bootstrap *What's next* roadmap and Phase 4 checklist.
 5. **Bootstrap phase structure (Phase 1–4)** — bootstrap files ↔
